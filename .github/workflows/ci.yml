@@ -31,6 +31,8 @@ jobs:
       - name: generate snyk JSON Report
         continue-on-error: true
         if: always()
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
           echo "Generando reporte "
           snyk test --json > snyk-report.json || echo "fallo "
